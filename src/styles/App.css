@@ -1,0 +1,14 @@
+#wrapper {
+  margin: 50px 72px;
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  max-width: 100vw;
+}
+
+.input-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
