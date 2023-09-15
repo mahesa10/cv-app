@@ -7,4 +7,12 @@ label {
 
 input {
   padding: 12px;
+  background-color: #FAFAFA;
+  border: 1px solid #CCCCCC;
+  border-radius: 5px;
+}
+
+input:focus {
+  border-color: #858585;
+  outline: none;
 }
