@@ -5,14 +5,10 @@ function EducationSection() {
     <section>
       <div className="form-header">
         <h2>Education</h2>
-        {/* <span
-        className="material-symbols-outlined"
-        >
-          {expanded ? 'expand_less' : 'expand_more'}
-        </span> */}
+        <span className="material-symbols-outlined">add</span>
       </div>
     </section>
   )
 }
 
-export default { EducationSection };
+export { EducationSection };
