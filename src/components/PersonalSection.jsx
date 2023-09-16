@@ -8,7 +8,7 @@ function PersonalForm() {
       <InputField label='Full Name' type='text'></InputField>
       <InputField label='Email' type='email'></InputField>
       <InputField label='Phone Number' type='tel'></InputField>
-      <button type="submit">Save</button>
+      <button className="submit-btn" type="submit">Save</button>
     </form>
   )
 }
@@ -31,7 +31,7 @@ function PersonalSection() {
           {expanded ? 'expand_less' : 'expand_more'}
         </span>
       </div>
-      {expanded ? <PersonalForm></PersonalForm> : ''}
+      {expanded ? <PersonalForm></PersonalForm> : null}
     </section>
   )
 }

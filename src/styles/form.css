@@ -30,18 +30,37 @@ form {
   gap: 28px;
 }
 
-button {
-  font-weight: 600;
-  align-self: end;
-  font-size: inherit;
-  padding: 10px 20px;
-  border: none;
-  background-color: #0D8CE8;
-  color: white;
-  border-radius: 6px;
-  cursor: pointer;
+.btn-container {
+  display: flex;
+  gap: 10px;
+  justify-content: end;
 }
 
-button:hover {
+button {
+  font-weight: 600;
+  font-size: inherit;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  align-self: end;
+}
+
+.submit-btn {
+  background-color: #0D8CE8;
+  color: white;
+  border: 1px solid #0D8CE8;
+}
+
+.cancel-btn {
+  background-color: white;
+  border: 1px solid #494949;
+  color: #494949;
+}
+
+.submit-btn:hover {
   background-color: hsl(205, 89%, 40%);
+}
+
+.cancel-btn:hover {
+  background-color: #f1f1f1;
 }
