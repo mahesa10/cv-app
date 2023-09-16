@@ -9,4 +9,5 @@
 body {
   background-color: #F5F6FA;
   font-family: 'Inter', sans-serif;
+  max-width: 100vw;
 }

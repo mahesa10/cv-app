@@ -1,9 +1,8 @@
 #wrapper {
-  margin: 50px 72px;
+  margin: 30px;
   display: flex;
   flex-direction: row;
-  gap: 100px;
-  max-width: 100vw;
+  gap: 50px;
 }
 
 .input-section {
@@ -11,4 +10,9 @@
   display: flex;
   flex-direction: column;
   gap: 32px;
+}
+
+.cv-container {
+  height: 297mm;
+  width: 210mm;
 }

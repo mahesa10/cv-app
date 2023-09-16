@@ -13,7 +13,7 @@ function App() {
         <EducationSection></EducationSection>
         <ExperienceSection></ExperienceSection>
       </div>
-      <div className='col'>
+      <div className='col cv-container'>
         <CVResult></CVResult>
       </div>
     </div>
