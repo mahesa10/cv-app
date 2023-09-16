@@ -1,6 +1,5 @@
 import { useState } from "react";
 import InputField from "./InputField";
-import Button from "./Button";
 import '../styles/form.css';
 
 function PersonalForm() {
@@ -9,7 +8,7 @@ function PersonalForm() {
       <InputField label='Full Name' type='text'></InputField>
       <InputField label='Email' type='email'></InputField>
       <InputField label='Phone Number' type='tel'></InputField>
-      <Button text='Save'></Button>
+      <button type="submit">Save</button>
     </form>
   )
 }
