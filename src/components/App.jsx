@@ -16,7 +16,9 @@ const person = {
       school: 'Harvard University',
       degree: 'Bachelor of Science',
       startDate: '09/2016',
-      endDate: '08/2020'
+      endDate: '08/2020',
+      city: 'Boston',
+      country: 'USA'
     }
   ],
   experience: [
@@ -26,6 +28,8 @@ const person = {
       position: 'Senior Web Developer',
       startDate: '09/2020',
       endDate: '',
+      city: 'Mountain View ',
+      country: 'USA',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus purus a dolor congue, nec finibus eros pulvinar. Praesent lobortis posuere tellus quis vulputate. Mauris mollis, lectus non eleifend sollicitudin, ipsum ante consectetur dui, nec feugiat risus nisl sit amet est.'
     }
   ]
