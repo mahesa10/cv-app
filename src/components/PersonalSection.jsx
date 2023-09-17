@@ -8,6 +8,7 @@ function PersonalForm() {
       <InputField label='Full Name' type='text'></InputField>
       <InputField label='Email' type='email'></InputField>
       <InputField label='Phone Number' type='tel'></InputField>
+      <InputField label='Address' type='text'></InputField>
       <button className="submit-btn" type="submit">Save</button>
     </form>
   )
