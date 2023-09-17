@@ -10,6 +10,7 @@ const person = {
   fullName: 'John Doe',
   email: 'johndoe@gmail.com',
   phone: '+621234567890',
+  address: 'Jakarta, Indonesia',
   education: [
     {
       id: uuidv4(),
