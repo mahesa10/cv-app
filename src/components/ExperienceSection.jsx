@@ -5,10 +5,12 @@ import '../styles/form.css'
 function ExperienceForm({handleCancel}) {
   return (
     <form action="">
-      <InputField label='Place of Work' type='text'></InputField>
+      <InputField label='Company Name' type='text'></InputField>
       <InputField label='Title' type='email'></InputField>
       <InputField label='Start Date' type='date'></InputField>
       <InputField label='End Date' type='date'></InputField>
+      <InputField label='City' type='text'></InputField>
+      <InputField label='Country' type='text'></InputField>
       <InputField label='Description' type='textarea'></InputField>
       <div className="btn-container">
         <button className='cancel-btn' onClick={handleCancel}>Cancel</button>

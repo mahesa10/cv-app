@@ -9,6 +9,8 @@ function EducationForm({handleCancel}) {
       <InputField label='Degree / Title of Study' type='email'></InputField>
       <InputField label='Start Date' type='date'></InputField>
       <InputField label='End Date' type='date'></InputField>
+      <InputField label='City' type='text'></InputField>
+      <InputField label='Country' type='text'></InputField>
       <div className="btn-container">
         <button className='cancel-btn' onClick={handleCancel}>Cancel</button>
         <button className='submit-btn' type='submit'>Save</button>
