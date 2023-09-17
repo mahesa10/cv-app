@@ -9,6 +9,7 @@ function ExperienceForm({handleCancel}) {
       <InputField label='Title' type='email'></InputField>
       <InputField label='Start Date' type='date'></InputField>
       <InputField label='End Date' type='date'></InputField>
+      <InputField label='Description' type='textarea'></InputField>
       <div className="btn-container">
         <button className='cancel-btn' onClick={handleCancel}>Cancel</button>
         <button className='submit-btn' type='submit'>Save</button>

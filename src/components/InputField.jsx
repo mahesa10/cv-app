@@ -4,7 +4,7 @@ function InputField({label, type}) {
   return (
     <label>
       {label}
-      <input type={type} />
+      {type === 'textarea' ? <textarea rows='5'></textarea> : <input type={type} />}
     </label>
   )
 }
