@@ -50,7 +50,7 @@ function CVResult({person}) {
   return (
     <div className="cv-result">
       <div className="cv-header">
-        <h2 className="full-name">{person.fullName}</h2>
+        <h1 className="full-name">{person.fullName}</h1>
         <div className="person-info">
           {person.address} | {person.phone} | {person.email}
         </div>
