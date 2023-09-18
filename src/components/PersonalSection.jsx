@@ -2,19 +2,43 @@ import { useState } from "react";
 import InputField from "./InputField";
 import '../styles/form.css';
 
-function PersonalForm() {
+function PersonalForm({onSubmit, person}) {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
+
+  const changeFullName = (e) => {
+    setFullName(e.target.value)
+  }
+
+  const changeEmail = (e) => {
+    setEmail(e.target.value)
+  }
+
+  const changePhone = (e) => {
+    setPhone(e.target.value)
+  }
+
+  const changeAddress = (e) => {
+    setAddress(e.target.value)
+  }
+
   return (
-    <form action="">
-      <InputField label='Full Name' type='text'></InputField>
-      <InputField label='Email' type='email'></InputField>
-      <InputField label='Phone Number' type='tel'></InputField>
-      <InputField label='Address' type='text'></InputField>
+    <form onSubmit={(e) => {
+      e.preventDefault()
+      onSubmit(fullName, email, phone, address)
+    }}>
+      <InputField label='Full Name' type='text' onChange={changeFullName} value={person.fullName}></InputField>
+      <InputField label='Email' type='email' onChange={changeEmail} value={person.email}></InputField>
+      <InputField label='Phone Number' type='text' onChange={changePhone} value={person.phone}></InputField>
+      <InputField label='Address' type='text' onChange={changeAddress} value={person.address}></InputField>
       <button className="submit-btn" type="submit">Save</button>
     </form>
   )
 }
 
-function PersonalSection() {
+function PersonalSection({onSubmit, person}) {
   const [expanded, setExpanded] = useState(true);
 
   const handleDropdown = () => {
@@ -32,7 +56,7 @@ function PersonalSection() {
           {expanded ? 'expand_less' : 'expand_more'}
         </span>
       </div>
-      {expanded ? <PersonalForm></PersonalForm> : null}
+      {expanded ? <PersonalForm onSubmit={onSubmit} person={person}></PersonalForm> : null}
     </section>
   )
 }

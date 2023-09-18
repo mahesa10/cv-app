@@ -6,41 +6,77 @@ import CVResult from './CVResult'
 import { EducationSection } from './EducationSection'
 import { ExperienceSection } from './ExperienceSection'
 
-const person = {
-  fullName: 'John Doe',
-  email: 'johndoe@gmail.com',
-  phone: '+1 320 123 4567',
-  address: 'Mountain View, CA',
-  education: [
-    {
-      id: uuidv4(),
-      name: 'Harvard University',
-      degree: 'Bachelor of Engineering',
-      startDate: 'Sep, 2016',
-      endDate: 'Aug, 2020',
-      city: 'Boston',
-      country: 'USA'
-    }
-  ],
-  experience: [
-    {
-      id: uuidv4(),
-      company: 'Alphabet Inc',
-      position: 'Senior Web Developer',
-      startDate: 'Sep, 2020',
-      endDate: '',
-      city: 'Mountain View',
-      country: 'USA',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus purus a dolor congue, nec finibus eros pulvinar. Praesent lobortis posuere tellus quis vulputate. Mauris mollis, lectus non eleifend sollicitudin, ipsum ante consectetur dui, nec feugiat risus nisl sit amet est.'
-    }
-  ]
-}
+// const person = {
+//   fullName: 'John Doe',
+//   email: 'johndoe@gmail.com',
+//   phone: '+1 320 123 4567',
+//   address: 'Mountain View, CA',
+//   education: [
+//     {
+//       id: uuidv4(),
+//       name: 'Harvard University',
+//       degree: 'Bachelor of Engineering',
+//       startDate: 'Sep, 2016',
+//       endDate: 'Aug, 2020',
+//       city: 'Boston',
+//       country: 'USA'
+//     }
+//   ],
+//   experience: [
+//     {
+//       id: uuidv4(),
+//       company: 'Alphabet Inc',
+//       position: 'Senior Web Developer',
+//       startDate: 'Sep, 2020',
+//       endDate: '',
+//       city: 'Mountain View',
+//       country: 'USA',
+//       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus purus a dolor congue, nec finibus eros pulvinar. Praesent lobortis posuere tellus quis vulputate. Mauris mollis, lectus non eleifend sollicitudin, ipsum ante consectetur dui, nec feugiat risus nisl sit amet est.'
+//     }
+//   ]
+// }
 
 function App() {
+  const [person, setPerson] = useState(
+    {
+      fullName: 'John Doe',
+      email: 'johndoe@gmail.com',
+      phone: '+1 320 123 4567',
+      address: 'Mountain View, CA',
+      education: [
+        {
+          id: uuidv4(),
+          name: 'Harvard University',
+          degree: 'Bachelor of Engineering',
+          startDate: 'Sep, 2016',
+          endDate: 'Aug, 2020',
+          city: 'Boston',
+          country: 'USA'
+        }
+      ],
+      experience: [
+        {
+          id: uuidv4(),
+          company: 'Alphabet Inc',
+          position: 'Senior Web Developer',
+          startDate: 'Sep, 2020',
+          endDate: '',
+          city: 'Mountain View',
+          country: 'USA',
+          description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus purus a dolor congue, nec finibus eros pulvinar. Praesent lobortis posuere tellus quis vulputate. Mauris mollis, lectus non eleifend sollicitudin, ipsum ante consectetur dui, nec feugiat risus nisl sit amet est.'
+        }
+      ]
+    }
+  )
+
+  const handlePersonalSubmit = (fullName, email, phone, address) => {
+    setPerson({...person, fullName, email, phone, address})
+  }
+
   return (
     <div id='wrapper'>
       <div className='col input-section'>
-        <PersonalSection></PersonalSection>
+        <PersonalSection onSubmit={handlePersonalSubmit} person={person}></PersonalSection>
         <EducationSection></EducationSection>
         <ExperienceSection></ExperienceSection>
       </div>
