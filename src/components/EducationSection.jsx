@@ -19,24 +19,51 @@ function EducationForm({handleCancel}) {
   )
 }
 
-function EducationSection() {
-  const [expanded, setExpanded] = useState(false)
-
-  const handleExpand = () => {
-    setExpanded(true)
+function EducationList({person}) {
+  let content = null
+  
+  if (person.education.length > 0) {
+    content = (
+      <>
+        {person.education.map(school => (
+          <div className="school-list" key={school.id}>
+            <div className="school-list-name">{school.name}</div>
+            <span class="material-symbols-outlined">
+            edit
+            </span>
+          </div>
+        ))}
+      </>
+    )
   }
 
-  const handleCancel = () => {
-    setExpanded(false)
+  return content
+}
+
+function EducationSection({person}) {
+  const [displayForm, setDisplayForm] = useState(false)
+
+  const showForm = () => {
+    setDisplayForm(true)
+  }
+
+  const hideForm = () => {
+    setDisplayForm(false)
+  }
+
+  let content = <EducationList person={person}></EducationList>
+
+  if (displayForm) {
+    content = <EducationForm handleCancel={hideForm}></EducationForm>
   }
   
   return (
     <section>
       <div className="form-header">
         <h2>Education</h2>
-        <span className="material-symbols-outlined" onClick={handleExpand}>add</span>
+        <span className="material-symbols-outlined" onClick={showForm}>add</span>
       </div>
-      {expanded ? <EducationForm handleCancel={handleCancel}></EducationForm> : null}
+      {content}
     </section>
   )
 }

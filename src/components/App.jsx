@@ -77,8 +77,8 @@ function App() {
     <div id='wrapper'>
       <div className='col input-section'>
         <PersonalSection onSubmit={handlePersonalSubmit} person={person}></PersonalSection>
-        <EducationSection></EducationSection>
-        <ExperienceSection></ExperienceSection>
+        <EducationSection person={person}></EducationSection>
+        <ExperienceSection person={person}></ExperienceSection>
       </div>
       <div className='col cv-container'>
         <CVResult person={person}></CVResult>

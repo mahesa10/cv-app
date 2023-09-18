@@ -19,9 +19,12 @@ section h2 {
   align-items: center;
 }
 
+.material-symbols-outlined {
+  cursor: pointer;
+}
+
 .form-header > span {
   font-size: 2rem;
-  cursor: pointer;
 }
 
 form {
@@ -63,4 +66,10 @@ button {
 
 .cancel-btn:hover {
   background-color: #f1f1f1;
+}
+
+.school-list,
+.experience-list {
+  display: flex;
+  justify-content: space-between;
 }

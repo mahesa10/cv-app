@@ -20,24 +20,51 @@ function ExperienceForm({handleCancel}) {
   )
 }
 
-function ExperienceSection() {
-  const [expanded, setExpanded] = useState(false)
-
-  const handleExpand = () => {
-    setExpanded(true)
+function ExperienceList({person}) {
+  let content = null
+  
+  if (person.experience.length > 0) {
+    content = (
+      <>
+        {person.experience.map(work => (
+          <div className="experience-list" key={work.id}>
+            <div className="experience-list-name">{work.company}</div>
+            <span class="material-symbols-outlined">
+            edit
+            </span>
+          </div>
+        ))}
+      </>
+    )
   }
 
-  const handleCancel = () => {
-    setExpanded(false)
+  return content
+}
+
+function ExperienceSection({person}) {
+  const [displayForm, setDisplayForm] = useState(false)
+
+  const showForm = () => {
+    setDisplayForm(true)
+  }
+
+  const hideForm = () => {
+    setDisplayForm(false)
+  }
+
+  let content = <ExperienceList person={person}></ExperienceList>
+
+  if (displayForm) {
+    content = <ExperienceForm handleCancel={hideForm}></ExperienceForm>
   }
 
   return (
     <section>
       <div className="form-header">
         <h2>Work Experience</h2>
-        <span className="material-symbols-outlined" onClick={handleExpand}>add</span>
+        <span className="material-symbols-outlined" onClick={showForm}>add</span>
       </div>
-      {expanded ? <ExperienceForm handleCancel={handleCancel}></ExperienceForm> : null}
+      {content}
     </section>
   )
 }
