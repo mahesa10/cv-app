@@ -2,7 +2,7 @@ label {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 input, textarea {
@@ -10,6 +10,7 @@ input, textarea {
   background-color: #FAFAFA;
   border: 1px solid #CCCCCC;
   border-radius: 5px;
+  font-size: inherit;
 }
 
 input:focus, textarea:focus {
