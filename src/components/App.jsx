@@ -9,15 +9,15 @@ import { ExperienceSection } from './ExperienceSection'
 const person = {
   fullName: 'John Doe',
   email: 'johndoe@gmail.com',
-  phone: '+621234567890',
-  address: 'Jakarta, Indonesia',
+  phone: '+1 320 123 4567',
+  address: 'Mountain View, CA',
   education: [
     {
       id: uuidv4(),
-      school: 'Harvard University',
-      degree: 'Bachelor of Science',
-      startDate: '09/2016',
-      endDate: '08/2020',
+      name: 'Harvard University',
+      degree: 'Bachelor of Engineering',
+      startDate: 'Sep, 2016',
+      endDate: 'Aug, 2020',
       city: 'Boston',
       country: 'USA'
     }
@@ -25,11 +25,11 @@ const person = {
   experience: [
     {
       id: uuidv4(),
-      workPlace: 'Alphabet Inc',
+      company: 'Alphabet Inc',
       position: 'Senior Web Developer',
-      startDate: '09/2020',
+      startDate: 'Sep, 2020',
       endDate: '',
-      city: 'Mountain View ',
+      city: 'Mountain View',
       country: 'USA',
       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus purus a dolor congue, nec finibus eros pulvinar. Praesent lobortis posuere tellus quis vulputate. Mauris mollis, lectus non eleifend sollicitudin, ipsum ante consectetur dui, nec feugiat risus nisl sit amet est.'
     }
@@ -45,7 +45,7 @@ function App() {
         <ExperienceSection></ExperienceSection>
       </div>
       <div className='col cv-container'>
-        <CVResult></CVResult>
+        <CVResult person={person}></CVResult>
       </div>
     </div>
   )

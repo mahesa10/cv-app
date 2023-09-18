@@ -7,7 +7,6 @@
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
   padding: 40px;
   font-size: 12pt;
-  /* line-height: 1.5rem; */
 }
 
 .cv-result h2 {
@@ -44,7 +43,7 @@ hr {
 
 .school-degree,
 .school-address,
-.work-title,
+.work-position,
 .work-address {
   font-style: italic;
 }
