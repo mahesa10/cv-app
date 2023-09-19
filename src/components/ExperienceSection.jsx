@@ -29,7 +29,7 @@ function ExperienceList({person}) {
         {person.experience.map(work => (
           <div className="experience-list" key={work.id}>
             <div className="experience-list-name">{work.company}</div>
-            <span class="material-symbols-outlined">
+            <span className="material-symbols-outlined">
             edit
             </span>
           </div>
