@@ -73,11 +73,27 @@ function App() {
     setPerson({...person, fullName, email, phone, address})
   }
 
+  const handleEducationSubmit = (schoolName, degree, startDate, endDate = '', city, country ) => {
+    const newSchool = {
+      id: uuidv4(),
+      name: schoolName,
+      degree,
+      startDate,
+      endDate,
+      city,
+      country
+    }
+
+    const education = [...person.education, newSchool]
+
+    setPerson({...person, education})
+  }
+
   return (
     <div id='wrapper'>
       <div className='col input-section'>
         <PersonalSection onSubmit={handlePersonalSubmit} person={person}></PersonalSection>
-        <EducationSection person={person}></EducationSection>
+        <EducationSection onSubmit={handleEducationSubmit} person={person}></EducationSection>
         <ExperienceSection person={person}></ExperienceSection>
       </div>
       <div className='col cv-container'>
