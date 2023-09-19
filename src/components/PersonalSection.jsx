@@ -3,10 +3,10 @@ import InputField from "./InputField";
 import '../styles/form.css';
 
 function PersonalForm({onSubmit, person}) {
-  const [fullName, setFullName] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
+  const [fullName, setFullName] = useState(person.fullName);
+  const [email, setEmail] = useState(person.email);
+  const [phone, setPhone] = useState(person.phone);
+  const [address, setAddress] = useState(person.address);
 
   const changeFullName = (e) => {
     setFullName(e.target.value)
@@ -29,10 +29,10 @@ function PersonalForm({onSubmit, person}) {
       e.preventDefault()
       onSubmit(fullName, email, phone, address)
     }}>
-      <InputField label='Full Name' type='text' onChange={changeFullName} value={person.fullName}></InputField>
-      <InputField label='Email' type='email' onChange={changeEmail} value={person.email}></InputField>
-      <InputField label='Phone Number' type='text' onChange={changePhone} value={person.phone}></InputField>
-      <InputField label='Address' type='text' onChange={changeAddress} value={person.address}></InputField>
+      <InputField label='Full Name' type='text' onChange={changeFullName} value={fullName}></InputField>
+      <InputField label='Email' type='email' onChange={changeEmail} value={email}></InputField>
+      <InputField label='Phone Number' type='text' onChange={changePhone} value={phone}></InputField>
+      <InputField label='Address' type='text' onChange={changeAddress} value={address}></InputField>
       <button className="submit-btn" type="submit">Save</button>
     </form>
   )
