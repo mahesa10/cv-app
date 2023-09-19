@@ -27,13 +27,14 @@
   margin-bottom: 32px;
 }
 
-hr {
-  margin-bottom: 10px;
-}
-
 .row {
   display: flex;
   justify-content: space-between;
+}
+
+.school-container,
+.work-container {
+  margin-top: 10px;
 }
 
 .school-name,
