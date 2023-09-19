@@ -2,16 +2,56 @@ import { useState } from 'react';
 import InputField from './InputField';
 import '../styles/form.css'
 
-function ExperienceForm({handleCancel}) {
+function ExperienceForm({handleCancel, onSubmit}) {
+  const [companyName, setCompanyName] = useState('')
+  const [position, setPosition] = useState('')
+  const [startDate, setStartDate] = useState('')
+  const [endDate, setEndDate] = useState('')
+  const [city, setCity] = useState('')
+  const [country, setCountry] = useState('')
+  const [description, setDescription] = useState('')
+
+  const changeCompanyName = (e) => {
+    setCompanyName(e.target.value)
+  }
+  
+  const changePosition = (e) => {
+    setPosition(e.target.value)
+  }
+
+  const changeStartDate = (e) => {
+    setStartDate(e.target.value)
+  }
+
+  const changeEndDate = (e) => {
+    setEndDate(e.target.value)
+  }
+
+  const changeCity = (e) => {
+    setCity(e.target.value)
+  }
+
+  const changeCountry = (e) => {
+    setCountry(e.target.value)
+  }
+
+  const changeDescription = (e) => {
+    setDescription(e.target.value)
+  }
+
   return (
-    <form action="">
-      <InputField label='Company Name' type='text'></InputField>
-      <InputField label='Title' type='email'></InputField>
-      <InputField label='Start Date' type='date'></InputField>
-      <InputField label='End Date' type='date'></InputField>
-      <InputField label='City' type='text'></InputField>
-      <InputField label='Country' type='text'></InputField>
-      <InputField label='Description' type='textarea'></InputField>
+    <form onSubmit={(e) => {
+      e.preventDefault()
+      onSubmit(companyName, position, startDate, endDate, city, country, description)
+      handleCancel()
+    }}>
+      <InputField label='Company Name' type='text' onChange={changeCompanyName}></InputField>
+      <InputField label='Position' type='text' onChange={changePosition}></InputField>
+      <InputField label='Start Date' type='text' onChange={changeStartDate}></InputField>
+      <InputField label='End Date' type='text' onChange={changeEndDate}></InputField>
+      <InputField label='City' type='text' onChange={changeCity}></InputField>
+      <InputField label='Country' type='text' onChange={changeCountry}></InputField>
+      <InputField label='Description' type='textarea' onChange={changeDescription}></InputField>
       <div className="btn-container">
         <button className='cancel-btn' onClick={handleCancel}>Cancel</button>
         <button className='submit-btn' type='submit'>Save</button>
@@ -41,7 +81,7 @@ function ExperienceList({person}) {
   return content
 }
 
-function ExperienceSection({person}) {
+function ExperienceSection({person, onSubmit}) {
   const [displayForm, setDisplayForm] = useState(false)
 
   const showForm = () => {
@@ -55,7 +95,7 @@ function ExperienceSection({person}) {
   let content = <ExperienceList person={person}></ExperienceList>
 
   if (displayForm) {
-    content = <ExperienceForm handleCancel={hideForm}></ExperienceForm>
+    content = <ExperienceForm handleCancel={hideForm} onSubmit={onSubmit}></ExperienceForm>
   }
 
   return (

@@ -89,12 +89,29 @@ function App() {
     setPerson({...person, education})
   }
 
+  const handleExperienceSubmit = (companyName, position, startDate, endDate = '', city, country, description ) => {
+    const newJob = {
+      id: uuidv4(),
+      company: companyName,
+      position,
+      startDate,
+      endDate,
+      city,
+      country,
+      description
+    }
+
+    const experience = [...person.experience, newJob]
+
+    setPerson({...person, experience})
+  }
+
   return (
     <div id='wrapper'>
       <div className='col input-section'>
         <PersonalSection onSubmit={handlePersonalSubmit} person={person}></PersonalSection>
         <EducationSection onSubmit={handleEducationSubmit} person={person}></EducationSection>
-        <ExperienceSection person={person}></ExperienceSection>
+        <ExperienceSection onSubmit={handleExperienceSubmit} person={person}></ExperienceSection>
       </div>
       <div className='col cv-container'>
         <CVResult person={person}></CVResult>
