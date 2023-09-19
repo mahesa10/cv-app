@@ -11,6 +11,7 @@ input, textarea {
   border: 1px solid #CCCCCC;
   border-radius: 5px;
   font-size: inherit;
+  font-family: inherit;
 }
 
 input:focus, textarea:focus {
