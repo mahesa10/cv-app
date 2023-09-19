@@ -29,10 +29,10 @@ function PersonalForm({onSubmit, person}) {
       e.preventDefault()
       onSubmit(fullName, email, phone, address)
     }}>
-      <InputField label='Full Name' type='text' onChange={changeFullName} value={fullName}></InputField>
-      <InputField label='Email' type='email' onChange={changeEmail} value={email}></InputField>
-      <InputField label='Phone Number' type='text' onChange={changePhone} value={phone}></InputField>
-      <InputField label='Address' type='text' onChange={changeAddress} value={address}></InputField>
+      <InputField label='Full Name' type='text' onChange={changeFullName} value={fullName} required={true}></InputField>
+      <InputField label='Email' type='email' onChange={changeEmail} value={email} required={true}></InputField>
+      <InputField label='Phone Number' type='text' onChange={changePhone} value={phone} required={true}></InputField>
+      <InputField label='Address' type='text' onChange={changeAddress} value={address} required={true}></InputField>
       <button className="submit-btn" type="submit">Save</button>
     </form>
   )

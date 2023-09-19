@@ -40,12 +40,12 @@ function EducationForm({hideForm, onSubmit}) {
       onSubmit(schoolName, degree, startDate, endDate, city, country)
       hideForm()
     }}>
-      <InputField label='School / University Name' type='text' onChange={changeSchoolName}></InputField>
-      <InputField label='Degree / Title of Study' type='text' onChange={changeDegree}></InputField>
-      <InputField label='Start Date' type='text' onChange={changeStartDate}></InputField>
+      <InputField label='School / University' type='text' onChange={changeSchoolName} required={true}></InputField>
+      <InputField label='Degree / Title of Study' type='text' onChange={changeDegree} required={true}></InputField>
+      <InputField label='Start Date' type='text' onChange={changeStartDate} required={true}></InputField>
       <InputField label='End Date' type='text' onChange={changeEndDate}></InputField>
-      <InputField label='City' type='text' onChange={changeCity}></InputField>
-      <InputField label='Country' type='text' onChange={changeCountry}></InputField>
+      <InputField label='City' type='text' onChange={changeCity} required={true}></InputField>
+      <InputField label='Country' type='text' onChange={changeCountry} required={true}></InputField>
       <div className="btn-container">
         <button className='cancel-btn' onClick={hideForm}>Cancel</button>
         <button className='submit-btn' type='submit'>Save</button>

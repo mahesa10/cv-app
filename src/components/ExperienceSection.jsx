@@ -45,12 +45,12 @@ function ExperienceForm({handleCancel, onSubmit}) {
       onSubmit(companyName, position, startDate, endDate, city, country, description)
       handleCancel()
     }}>
-      <InputField label='Company Name' type='text' onChange={changeCompanyName}></InputField>
-      <InputField label='Position' type='text' onChange={changePosition}></InputField>
-      <InputField label='Start Date' type='text' onChange={changeStartDate}></InputField>
+      <InputField label='Company' type='text' onChange={changeCompanyName} required={true}></InputField>
+      <InputField label='Position' type='text' onChange={changePosition} required={true}></InputField>
+      <InputField label='Start Date' type='text' onChange={changeStartDate} required={true}></InputField>
       <InputField label='End Date' type='text' onChange={changeEndDate}></InputField>
-      <InputField label='City' type='text' onChange={changeCity}></InputField>
-      <InputField label='Country' type='text' onChange={changeCountry}></InputField>
+      <InputField label='City' type='text' onChange={changeCity} required={true}></InputField>
+      <InputField label='Country' type='text' onChange={changeCountry} required={true}></InputField>
       <InputField label='Description' type='textarea' onChange={changeDescription}></InputField>
       <div className="btn-container">
         <button className='cancel-btn' onClick={handleCancel}>Cancel</button>

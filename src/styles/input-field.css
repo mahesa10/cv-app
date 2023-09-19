@@ -22,3 +22,15 @@ input:focus, textarea:focus {
 textarea {
   resize: none;
 }
+
+.label-container {
+  display: flex;
+  gap: 4px;
+}
+
+.optional {
+  font-size: 0.75rem;
+  color: #858585;
+  font-weight: 500;
+  align-self: flex-end;
+}
