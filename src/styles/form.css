@@ -21,6 +21,12 @@ section h2 {
 
 .material-symbols-outlined {
   cursor: pointer;
+  padding: 4px;
+  border-radius: 5px;
+}
+
+.material-symbols-outlined:hover {
+  background-color: #ececec;
 }
 
 .form-header > span {
@@ -71,5 +77,19 @@ button {
 .school-list,
 .experience-list {
   display: flex;
-  justify-content: space-between;
+  gap: 4px;
+  align-items: center;
+}
+
+.edit-btn {
+  margin-left: auto;
+}
+
+.delete-btn {
+  color: #c50000;
+}
+
+.delete-btn:hover {
+  background-color: #c50000;
+  color: white;
 }

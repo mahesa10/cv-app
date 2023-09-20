@@ -120,9 +120,10 @@ function ExperienceList({person, showForm, handleEdit}) {
               handleEdit(job.id)
               showForm()
             }}
-            className="material-symbols-outlined">
+            className="material-symbols-outlined edit-btn">
             edit
             </span>
+            <span className="material-symbols-outlined delete-btn">delete</span>
           </div>
         ))}
       </>

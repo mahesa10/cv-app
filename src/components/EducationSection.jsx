@@ -109,9 +109,10 @@ function EducationList({person, showForm, handleEdit}) {
             <span onClick={() => {
               handleEdit(school.id)
               showForm()
-            }} className="material-symbols-outlined">
-            edit
+            }} className="material-symbols-outlined edit-btn">
+              edit
             </span>
+            <span className="material-symbols-outlined delete-btn">delete</span>
           </div>
         ))}
       </>
