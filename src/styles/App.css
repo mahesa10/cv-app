@@ -17,6 +17,7 @@
 .cv-container {
   height: 297mm;
   width: 210mm;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
 }
 
 section {
