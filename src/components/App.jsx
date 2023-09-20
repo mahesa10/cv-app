@@ -4,6 +4,7 @@ import { PersonalSection } from './PersonalSection'
 import { EducationSection } from './EducationSection'
 import { ExperienceSection } from './ExperienceSection'
 import CVResult from './CVResult'
+import html2pdf from 'html2pdf.js'
 import '../styles/App.css'
 
 function App() {
@@ -104,12 +105,23 @@ function App() {
     setPerson({...person, experience})
   }
 
+  const generatePDF = () => {
+    const element = document.querySelector('.cv-result')
+    const opt = {
+      filename: person.fullName + '-CV',
+      image: { type: 'jpeg', quality: 1 },
+      html2canvas: { scale: 2 }
+    }
+
+    html2pdf().from(element).set(opt).save()
+  }
+
   return (
     <div id='wrapper'>
       <div className='col input-section'>
         <section className='download-section'>
           <div>Save your CV as PDF</div>
-          <button className='download-btn'><span className="material-symbols-outlined">download</span>Download</button>
+          <button onClick={generatePDF} className='download-btn'><span className="material-symbols-outlined">download</span>Download</button>
         </section>
         <PersonalSection onSubmit={handlePersonalSubmit} person={person}></PersonalSection>
         <EducationSection onSubmit={handleEducationSubmit} person={person} handleDelete={handleDeleteEducation}></EducationSection>
