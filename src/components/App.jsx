@@ -66,9 +66,9 @@ function App() {
     setPerson({...person, education})
   }
 
-  const handleExperienceSubmit = (companyName, position, startDate, endDate = '', city, country, description ) => {
+  const handleExperienceSubmit = (id, companyName, position, startDate, endDate = '', city, country, description ) => {
     const newJob = {
-      id: uuidv4(),
+      id,
       company: companyName,
       position,
       startDate,
@@ -78,7 +78,14 @@ function App() {
       description
     }
 
-    const experience = [...person.experience, newJob]
+    let jobIndex = person.experience.findIndex(job => job.id === id)
+    let experience = [...person.experience]
+
+    if (jobIndex >= 0) {
+      experience[jobIndex] = newJob
+    } else {
+      experience.push(newJob)
+    }
 
     setPerson({...person, experience})
   }
