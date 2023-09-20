@@ -107,7 +107,7 @@ function ExperienceForm({handleCancel, onSubmit, data}) {
   )
 }
 
-function ExperienceList({person, showForm, handleEdit}) {
+function ExperienceList({person, showForm, handleEdit, handleDelete}) {
   let content = null
   
   if (person.experience.length > 0) {
@@ -123,7 +123,7 @@ function ExperienceList({person, showForm, handleEdit}) {
             className="material-symbols-outlined edit-btn">
             edit
             </span>
-            <span className="material-symbols-outlined delete-btn">delete</span>
+            <span onClick={() => handleDelete(job.id)} className="material-symbols-outlined delete-btn">delete</span>
           </div>
         ))}
       </>
@@ -133,7 +133,7 @@ function ExperienceList({person, showForm, handleEdit}) {
   return content
 }
 
-function ExperienceSection({person, onSubmit}) {
+function ExperienceSection({person, onSubmit, handleDelete}) {
   const [displayForm, setDisplayForm] = useState(false)
   const [jobID, setJobID] = useState('')
   const defaultData = {
@@ -162,7 +162,7 @@ function ExperienceSection({person, onSubmit}) {
     setFormData(job)
   }
 
-  let content = <ExperienceList person={person} showForm={showForm} handleEdit={displayDataOnForm}></ExperienceList>
+  let content = <ExperienceList person={person} showForm={showForm} handleEdit={displayDataOnForm} handleDelete={handleDelete}></ExperienceList>
 
   if (displayForm) {
     content = <ExperienceForm handleCancel={hideForm} onSubmit={onSubmit} data={formData}></ExperienceForm>

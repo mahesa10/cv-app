@@ -90,12 +90,26 @@ function App() {
     setPerson({...person, experience})
   }
 
+  const handleDeleteEducation = (schoolID) => {
+    const schoolIndex = person.education.findIndex(school => school.id === schoolID)
+    let education = [...person.education]
+    education.splice(schoolIndex, 1)
+    setPerson({...person, education})
+  }
+
+  const handleDeleteExperience = (jobID) => {
+    const jobIndex = person.experience.findIndex(job => job.id === jobID)
+    let experience = [...person.experience]
+    experience.splice(jobIndex, 1)
+    setPerson({...person, experience})
+  }
+
   return (
     <div id='wrapper'>
       <div className='col input-section'>
         <PersonalSection onSubmit={handlePersonalSubmit} person={person}></PersonalSection>
-        <EducationSection onSubmit={handleEducationSubmit} person={person}></EducationSection>
-        <ExperienceSection onSubmit={handleExperienceSubmit} person={person}></ExperienceSection>
+        <EducationSection onSubmit={handleEducationSubmit} person={person} handleDelete={handleDeleteEducation}></EducationSection>
+        <ExperienceSection onSubmit={handleExperienceSubmit} person={person} handleDelete={handleDeleteExperience}></ExperienceSection>
       </div>
       <div className='col cv-container'>
         <CVResult person={person}></CVResult>

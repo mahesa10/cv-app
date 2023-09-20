@@ -97,7 +97,7 @@ function EducationForm({hideForm, onSubmit, data}) {
   )
 }
 
-function EducationList({person, showForm, handleEdit}) {
+function EducationList({person, showForm, handleEdit, handleDelete}) {
   let content = null
   
   if (person.education.length > 0) {
@@ -112,7 +112,7 @@ function EducationList({person, showForm, handleEdit}) {
             }} className="material-symbols-outlined edit-btn">
               edit
             </span>
-            <span className="material-symbols-outlined delete-btn">delete</span>
+            <span onClick={() => handleDelete(school.id)} className="material-symbols-outlined delete-btn">delete</span>
           </div>
         ))}
       </>
@@ -122,7 +122,7 @@ function EducationList({person, showForm, handleEdit}) {
   return content
 }
 
-function EducationSection({person, onSubmit}) {  
+function EducationSection({person, onSubmit, handleDelete}) {  
   const [displayForm, setDisplayForm] = useState(false)
   const [schoolID, setSchoolID] = useState('')
   const defaultData = {
@@ -149,7 +149,7 @@ function EducationSection({person, onSubmit}) {
     setFormData(school)
   }
 
-  let content = <EducationList person={person} showForm={showForm} handleEdit={displayDataOnForm}></EducationList>
+  let content = <EducationList person={person} showForm={showForm} handleEdit={displayDataOnForm} handleDelete={handleDelete}></EducationList>
 
   if (displayForm) {
     content = <EducationForm hideForm={hideForm} onSubmit={onSubmit} data={formData}></EducationForm>
