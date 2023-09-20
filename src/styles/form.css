@@ -84,7 +84,7 @@ form button {
   color: #c50000;
 }
 
-.delete-btn:hover {
-  background-color: #c50000;
+.material-symbols-outlined.delete-btn:hover {
   color: white;
+  background-color: #c50000;
 }
