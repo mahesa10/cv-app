@@ -46,7 +46,7 @@ function PersonalSection({onSubmit, person}) {
   }
 
   return (
-    <section>
+    <section className="form-section">
       <div className="form-header">
         <h2>Personal Information</h2>
         <span

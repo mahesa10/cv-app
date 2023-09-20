@@ -169,7 +169,7 @@ function ExperienceSection({person, onSubmit, handleDelete}) {
   }
 
   return (
-    <section>
+    <section className="form-section">
       <div className="form-header">
         <h2>Job Experience</h2>
         <span
