@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import InputField from './InputField';
+import { v4 as uuidv4 } from 'uuid';
 import '../styles/form.css'
 
-function EducationForm({hideForm, onSubmit}) {
-  const [schoolName, setSchoolName] = useState('')
-  const [degree, setDegree] = useState('')
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
-  const [city, setCity] = useState('')
-  const [country, setCountry] = useState('')
+function EducationForm({hideForm, onSubmit, data}) {
+  const [schoolName, setSchoolName] = useState(data.name)
+  const [degree, setDegree] = useState(data.degree)
+  const [startDate, setStartDate] = useState(data.startDate)
+  const [endDate, setEndDate] = useState(data.endDate)
+  const [city, setCity] = useState(data.city)
+  const [country, setCountry] = useState(data.country)
+  const schoolID = data.id
 
   const changeSchoolName = (e) => {
     setSchoolName(e.target.value)
@@ -37,15 +39,56 @@ function EducationForm({hideForm, onSubmit}) {
   return (
     <form onSubmit={(e) => {
       e.preventDefault()
-      onSubmit(schoolName, degree, startDate, endDate, city, country)
+      onSubmit(schoolID, schoolName, degree, startDate, endDate, city, country)
       hideForm()
     }}>
-      <InputField label='School / University' type='text' onChange={changeSchoolName} required={true}></InputField>
-      <InputField label='Degree / Title of Study' type='text' onChange={changeDegree} required={true}></InputField>
-      <InputField label='Start Date' type='text' onChange={changeStartDate} required={true}></InputField>
-      <InputField label='End Date' type='text' onChange={changeEndDate}></InputField>
-      <InputField label='City' type='text' onChange={changeCity} required={true}></InputField>
-      <InputField label='Country' type='text' onChange={changeCountry} required={true}></InputField>
+      <InputField
+      label='School / University'
+      type='text'
+      onChange={changeSchoolName}
+      required={true}
+      value={schoolName}>
+      </InputField>
+
+      <InputField
+      label='Degree / Title of Study'
+      type='text'
+      onChange={changeDegree}
+      required={true}
+      value={degree}>
+      </InputField>
+
+      <InputField
+      label='Start Date'
+      type='text'
+      onChange={changeStartDate}
+      required={true}
+      value={startDate}>
+      </InputField>
+
+      <InputField
+      label='End Date'
+      type='text'
+      onChange={changeEndDate}
+      value={endDate}>
+      </InputField>
+
+      <InputField
+      label='City'
+      type='text'
+      onChange={changeCity}
+      required={true}
+      value={city}>
+      </InputField>
+
+      <InputField
+      label='Country'
+      type='text'
+      onChange={changeCountry}
+      required={true}
+      value={country}>
+      </InputField>
+
       <div className="btn-container">
         <button className='cancel-btn' onClick={hideForm}>Cancel</button>
         <button className='submit-btn' type='submit'>Save</button>
@@ -54,7 +97,7 @@ function EducationForm({hideForm, onSubmit}) {
   )
 }
 
-function EducationList({person}) {
+function EducationList({person, showForm, handleEdit}) {
   let content = null
   
   if (person.education.length > 0) {
@@ -63,7 +106,10 @@ function EducationList({person}) {
         {person.education.map(school => (
           <div className="school-list" key={school.id}>
             <div className="school-list-name">{school.name}</div>
-            <span className="material-symbols-outlined">
+            <span onClick={() => {
+              handleEdit(school.id)
+              showForm()
+            }} className="material-symbols-outlined">
             edit
             </span>
           </div>
@@ -75,8 +121,19 @@ function EducationList({person}) {
   return content
 }
 
-function EducationSection({person, onSubmit}) {
+function EducationSection({person, onSubmit}) {  
   const [displayForm, setDisplayForm] = useState(false)
+  const [schoolID, setSchoolID] = useState('')
+  const defaultData = {
+    id: schoolID,
+    name: '',
+    degree: '',
+    startDate: '',
+    endDate: '',
+    city: '',
+    country: ''
+  }
+  const [formData, setFormData] = useState(defaultData)
 
   const showForm = () => {
     setDisplayForm(true)
@@ -86,17 +143,26 @@ function EducationSection({person, onSubmit}) {
     setDisplayForm(false)
   }
 
-  let content = <EducationList person={person}></EducationList>
+  const displayDataOnForm = (schoolId) => {
+    const school = person.education.find(school => school.id === schoolId);
+    setFormData(school)
+  }
+
+  let content = <EducationList person={person} showForm={showForm} handleEdit={displayDataOnForm}></EducationList>
 
   if (displayForm) {
-    content = <EducationForm hideForm={hideForm} onSubmit={onSubmit}></EducationForm>
+    content = <EducationForm hideForm={hideForm} onSubmit={onSubmit} data={formData}></EducationForm>
   }
   
   return (
     <section>
       <div className="form-header">
         <h2>Education</h2>
-        <span className="material-symbols-outlined" onClick={showForm}>add</span>
+        <span className="material-symbols-outlined" onClick={() => {
+          setSchoolID(uuidv4())
+          setFormData(defaultData)
+          showForm()
+        }}>add</span>
       </div>
       {content}
     </section>

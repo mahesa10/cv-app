@@ -1,40 +1,10 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { v4 as uuidv4 } from 'uuid'
-import '../styles/App.css'
 import { PersonalSection } from './PersonalSection'
-import CVResult from './CVResult'
 import { EducationSection } from './EducationSection'
 import { ExperienceSection } from './ExperienceSection'
-
-// const person = {
-//   fullName: 'John Doe',
-//   email: 'johndoe@gmail.com',
-//   phone: '+1 320 123 4567',
-//   address: 'Mountain View, CA',
-//   education: [
-//     {
-//       id: uuidv4(),
-//       name: 'Harvard University',
-//       degree: 'Bachelor of Engineering',
-//       startDate: 'Sep, 2016',
-//       endDate: 'Aug, 2020',
-//       city: 'Boston',
-//       country: 'USA'
-//     }
-//   ],
-//   experience: [
-//     {
-//       id: uuidv4(),
-//       company: 'Alphabet Inc',
-//       position: 'Senior Web Developer',
-//       startDate: 'Sep, 2020',
-//       endDate: '',
-//       city: 'Mountain View',
-//       country: 'USA',
-//       description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus purus a dolor congue, nec finibus eros pulvinar. Praesent lobortis posuere tellus quis vulputate. Mauris mollis, lectus non eleifend sollicitudin, ipsum ante consectetur dui, nec feugiat risus nisl sit amet est.'
-//     }
-//   ]
-// }
+import CVResult from './CVResult'
+import '../styles/App.css'
 
 function App() {
   const [person, setPerson] = useState(
@@ -73,9 +43,9 @@ function App() {
     setPerson({...person, fullName, email, phone, address})
   }
 
-  const handleEducationSubmit = (schoolName, degree, startDate, endDate = '', city, country ) => {
+  const handleEducationSubmit = (id, schoolName, degree, startDate, endDate = '', city, country ) => {
     const newSchool = {
-      id: uuidv4(),
+      id,
       name: schoolName,
       degree,
       startDate,
@@ -84,7 +54,14 @@ function App() {
       country
     }
 
-    const education = [...person.education, newSchool]
+    let schoolIndex = person.education.findIndex(school => school.id === id)
+    let education = [...person.education]
+
+    if (schoolIndex >= 0) {
+      education[schoolIndex] = newSchool
+    } else {
+      education.push(newSchool)
+    }
 
     setPerson({...person, education})
   }
