@@ -107,6 +107,10 @@ function App() {
   return (
     <div id='wrapper'>
       <div className='col input-section'>
+        <section className='download-section'>
+          <div>Save your CV as PDF</div>
+          <button className='download-btn'><span className="material-symbols-outlined">download</span>Download</button>
+        </section>
         <PersonalSection onSubmit={handlePersonalSubmit} person={person}></PersonalSection>
         <EducationSection onSubmit={handleEducationSubmit} person={person} handleDelete={handleDeleteEducation}></EducationSection>
         <ExperienceSection onSubmit={handleExperienceSubmit} person={person} handleDelete={handleDeleteExperience}></ExperienceSection>
