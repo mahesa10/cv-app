@@ -22,7 +22,7 @@ function App() {
           startDate: 'Sep, 2016',
           endDate: 'Aug, 2020',
           city: 'Boston',
-          country: 'USA'
+          country: 'MA'
         }
       ],
       experience: [
@@ -33,7 +33,7 @@ function App() {
           startDate: 'Sep, 2020',
           endDate: '',
           city: 'Mountain View',
-          country: 'USA',
+          country: 'CA',
           description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec tempus purus a dolor congue, nec finibus eros pulvinar. Praesent lobortis posuere tellus quis vulputate. Mauris mollis, lectus non eleifend sollicitudin, ipsum ante consectetur dui, nec feugiat risus nisl sit amet est.'
         }
       ]
